@@ -1,6 +1,6 @@
 package com.atguigu.designpattern.uml;
 
-public class Person{ //������ʽ->��ͼ
+public class Person{ //代码形式->类图
 	private Integer id;
 	private String name;
 	public void setName(String name){

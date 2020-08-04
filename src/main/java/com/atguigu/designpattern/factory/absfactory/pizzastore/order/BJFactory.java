@@ -4,12 +4,12 @@ import com.atguigu.designpattern.factory.absfactory.pizzastore.pizza.BJCheesePiz
 import com.atguigu.designpattern.factory.absfactory.pizzastore.pizza.BJPepperPizza;
 import com.atguigu.designpattern.factory.absfactory.pizzastore.pizza.Pizza;
 
-//���ǹ�������
+//这是工厂子类
 public class BJFactory implements AbsFactory {
 
 	@Override
 	public Pizza createPizza(String orderType) {
-		System.out.println("~ʹ�õ��ǳ��󹤳�ģʽ~");
+		System.out.println("~使用的是抽象工厂模式~");
 		// TODO Auto-generated method stub
 		Pizza pizza = null;
 		if(orderType.equals("cheese")) {

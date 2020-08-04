@@ -1,5 +1,5 @@
 package com.atguigu.designpattern.strategy.improve;
 
 public interface QuackBehavior {
-	void quack();//����ʵ��
+	void quack();//子类实现
 }

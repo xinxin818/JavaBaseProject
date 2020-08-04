@@ -1,6 +1,6 @@
 package com.atguigu.designpattern.money;
 
-//���־���״̬��
+//各种具体状态类
 class FeedBackState extends AbstractState {
 
 	@Override

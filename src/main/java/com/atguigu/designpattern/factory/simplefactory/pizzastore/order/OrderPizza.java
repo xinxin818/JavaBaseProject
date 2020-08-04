@@ -8,25 +8,25 @@ import com.atguigu.designpattern.factory.simplefactory.pizzastore.pizza.Pizza;
 
 public class OrderPizza {
 
-	// ������
+	// 构造器
 //	public OrderPizza() {
 //		Pizza pizza = null;
-//		String orderType; // ��������������
+//		String orderType; // 订购披萨的类型
 //		do {
 //			orderType = getType();
 //			if (orderType.equals("greek")) {
 //				pizza = new GreekPizza();
-//				pizza.setName(" ϣ������ ");
+//				pizza.setName(" 希腊披萨 ");
 //			} else if (orderType.equals("cheese")) {
 //				pizza = new CheesePizza();
-//				pizza.setName(" �������� ");
+//				pizza.setName(" 奶酪披萨 ");
 //			} else if (orderType.equals("pepper")) {
 //				pizza = new PepperPizza();
-//				pizza.setName("��������");
+//				pizza.setName("胡椒披萨");
 //			} else {
 //				break;
 //			}
-//			//���pizza ��������
+//			//输出pizza 制作过程
 //			pizza.prepare();
 //			pizza.bake();
 //			pizza.cut();
@@ -35,42 +35,42 @@ public class OrderPizza {
 //		} while (true);
 //	}
 
-	//����һ���򵥹�������
+	//定义一个简单工厂对象
 	SimpleFactory simpleFactory;
 	Pizza pizza = null;
 	
-	//������
+	//构造器
 	public OrderPizza(SimpleFactory simpleFactory) {
 		setFactory(simpleFactory);
 	}
 	
 	public void setFactory(SimpleFactory simpleFactory) {
-		String orderType = ""; //�û������
+		String orderType = ""; //用户输入的
 		
-		this.simpleFactory = simpleFactory; //���ü򵥹�������
+		this.simpleFactory = simpleFactory; //设置简单工厂对象
 		
 		do {
 			orderType = getType(); 
 			pizza = this.simpleFactory.createPizza(orderType);
 			
-			//���pizza
-			if(pizza != null) { //�����ɹ�
+			//输出pizza
+			if(pizza != null) { //订购成功
 				pizza.prepare();
 				pizza.bake();
 				pizza.cut();
 				pizza.box();
 			} else {
-				System.out.println(" ��������ʧ�� ");
+				System.out.println(" 订购披萨失败 ");
 				break;
 			}
 		}while(true);
 	}
 	
-	// дһ�����������Ի�ȡ�ͻ�ϣ����������������
+	// 写一个方法，可以获取客户希望订购的披萨种类
 	private String getType() {
 		try {
 			BufferedReader strin = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input pizza ����:");
+			System.out.println("input pizza 种类:");
 			String str = strin.readLine();
 			return str;
 		} catch (IOException e) {

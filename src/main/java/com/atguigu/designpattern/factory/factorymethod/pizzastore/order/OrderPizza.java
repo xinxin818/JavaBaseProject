@@ -11,17 +11,17 @@ import com.atguigu.designpattern.factory.factorymethod.pizzastore.pizza.Pizza;
 
 public abstract class OrderPizza {
 
-	//����һ�����󷽷���createPizza , �ø������������Լ�ʵ��
+	//定义一个抽象方法，createPizza , 让各个工厂子类自己实现
 	abstract Pizza createPizza(String orderType);
 	
-	// ������
+	// 构造器
 	public OrderPizza() {
 		Pizza pizza = null;
-		String orderType; // ��������������
+		String orderType; // 订购披萨的类型
 		do {
 			orderType = getType();
-			pizza = createPizza(orderType); //���󷽷����ɹ����������
-			//���pizza ��������
+			pizza = createPizza(orderType); //抽象方法，由工厂子类完成
+			//输出pizza 制作过程
 			pizza.prepare();
 			pizza.bake();
 			pizza.cut();
@@ -32,11 +32,11 @@ public abstract class OrderPizza {
 
 	
 
-	// дһ�����������Ի�ȡ�ͻ�ϣ����������������
+	// 写一个方法，可以获取客户希望订购的披萨种类
 	private String getType() {
 		try {
 			BufferedReader strin = new BufferedReader(new InputStreamReader(System.in));
-			System.out.println("input pizza ����:");
+			System.out.println("input pizza 种类:");
 			String str = strin.readLine();
 			return str;
 		} catch (IOException e) {

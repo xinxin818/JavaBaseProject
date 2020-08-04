@@ -2,5 +2,5 @@ package com.atguigu.designpattern.strategy.improve;
 
 public interface FlyBehavior {
 	
-	void fly(); // �������ʵ��
+	void fly(); // 子类具体实现
 }

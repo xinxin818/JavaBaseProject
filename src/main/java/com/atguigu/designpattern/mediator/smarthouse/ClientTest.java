@@ -3,21 +3,21 @@ package com.atguigu.designpattern.mediator.smarthouse;
 public class ClientTest {
 
 	public static void main(String[] args) {
-		//����һ���н��߶���
+		//创建一个中介者对象
 		Mediator mediator = new ConcreteMediator();
 		
-		//����Alarm ���Ҽ��뵽  ConcreteMediator �����HashMap
+		//创建Alarm 并且加入到  ConcreteMediator 对象的HashMap
 		Alarm alarm = new Alarm(mediator, "alarm");
 		
-		//������CoffeeMachine ���󣬲�  �Ҽ��뵽  ConcreteMediator �����HashMap
+		//创建了CoffeeMachine 对象，并  且加入到  ConcreteMediator 对象的HashMap
 		CoffeeMachine coffeeMachine = new CoffeeMachine(mediator,
 				"coffeeMachine");
 		
-		//���� Curtains , ��  �Ҽ��뵽  ConcreteMediator �����HashMap
+		//创建 Curtains , 并  且加入到  ConcreteMediator 对象的HashMap
 		Curtains curtains = new Curtains(mediator, "curtains");
 		TV tV = new TV(mediator, "TV");
 		
-		//�����ӷ�����Ϣ
+		//让闹钟发出消息
 		alarm.SendAlarm(0);
 		coffeeMachine.FinishCoffee();
 		alarm.SendAlarm(1);

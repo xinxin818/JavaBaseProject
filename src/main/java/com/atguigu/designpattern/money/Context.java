@@ -1,6 +1,6 @@
 package com.atguigu.designpattern.money;
 
-//����������
+//环境上下文
 public class Context extends AbstractState{
 	private State state;
 
@@ -62,7 +62,7 @@ public class Context extends AbstractState{
 
     @Override
     public String getCurrentState() {
-        System.out.println("��ǰ״̬ : " + state.getCurrentState());
+        System.out.println("当前状态 : " + state.getCurrentState());
         return state.getCurrentState();
     }
 }

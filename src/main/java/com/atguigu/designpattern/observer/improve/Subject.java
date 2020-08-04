@@ -1,6 +1,6 @@
 package com.atguigu.designpattern.observer.improve;
 
-//�ӿ�, ��WeatherData ��ʵ�� 
+//接口, 让WeatherData 来实现 
 public interface Subject {
 	
 	public void registerObserver(Observer o);

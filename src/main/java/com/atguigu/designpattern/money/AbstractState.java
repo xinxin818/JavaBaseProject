@@ -2,7 +2,7 @@ package com.atguigu.designpattern.money;
 
 public abstract class AbstractState implements State {
 
-	protected static final RuntimeException EXCEPTION = new RuntimeException("�������̲�����");
+	protected static final RuntimeException EXCEPTION = new RuntimeException("操作流程不允许");
 
     @Override
     public void checkEvent(Context context) {
