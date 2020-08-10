@@ -1,4 +1,4 @@
-package com.atguigu.java1;
+package com.atguigu.jvmdemo.chapter02.java1;
 
 
 import sun.security.ec.CurveDB;

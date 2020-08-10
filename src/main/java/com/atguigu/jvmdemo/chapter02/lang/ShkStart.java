@@ -1,4 +1,4 @@
-package java.lang;
+package com.atguigu.jvmdemo.chapter02.lang;
 
 /**
  * @author shkstart
