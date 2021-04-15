@@ -6,8 +6,8 @@ public class RenameTest {
 
 	public static void main(String[] args) {
 
-		String path = "F:\\太棒了！终于有人把JVM讲清楚了！（Java虚拟机+JVM调优+MySQL调优+JVM类加载机制）";
-		String subString = "太棒了！终于有人把JVM讲清楚了！（Java虚拟机+JVM调优+MySQL调优+JVM类加载机制） - ";
+		String path = "D:\\learn\\video\\2021版Java架构师课程全套视频300集";
+		String subString = "2021版Java架构师课程全套视频300集，现在分享给大家，入门到精通(Java零基础到Java高 - ";
 
 		File file = new File(path);
 		File[] list = file.listFiles();
