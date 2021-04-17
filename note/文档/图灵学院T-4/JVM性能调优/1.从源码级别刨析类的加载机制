@@ -1,0 +1,62 @@
+
+1.从源码级别刨析类的加载机制
+	
+	课程内容：
+	
+		1.从Java.exe开始将头java类加载运行全过程
+		2.从JDK源码级别剖析JVM核心类加载器
+		3.从JDK源码级别剖析类加载双亲委派机制
+		4.手写自定义类加载器打破双亲委派机制
+		5.Tomcat类加载机制深度剖析
+		6.手写Tomcat类加载器实现多版本代码共存隔离
+	
+	
+	类加载运行全过程
+		加载》》验证》》准备》》解析》》初始化》》使用》》卸载
+		
+	类加载器和双亲委派机制
+	
+		引导类加载器
+		扩展类加载器
+		应用类加载器
+		自定义加载器
+		
+		类加载初始化过程：
+			JVM启动sun.mics.Laucher，它初始化使用了单例模式设计，保证一个JVM虚拟机内只有一个sun.misc.Laucher实例。
+			在Launcher构造方法内部，其创建了两个类加载器，分别是sun.mics.Launcher.ExtClassLoader(扩展类加载器)和sun.sics.Launcher.AppClassLoader(应用类加载器)。
+			JVM默认使用Launcher的getClassLoader()方法返回的类加载器AppClassLoader的实例加载我们的应用程序。
+		
+		双亲委派机制：		先找父亲加载，再找子类加载
+			
+			引导类加载器			|
+				|				|
+				|向上委托		|
+				|				|
+			扩展类加载器			|
+				|				|父加载器加载失败由子加载器自己加载
+				|向上委托		|
+				|				|
+			应用程序类加载器		|
+				|				|
+				|				|
+				|				
+			自定义加载器，自定义加载器	
+		
+		为什么使用双亲委派机制：
+			1.沙箱安全机制：自己写的Java.lang.String.class类不会被加载，这样便可以防止核心API库被随意篡改。
+			2.避免类的重复加载：当父亲已经加载了该类时，就没有必要子ClassLoader再加载一次，保证被加载类的唯一性。
+	
+	自定义类加载器：
+		
+		自定义类加载器只需要继承java.lang.ClassLoader类，该类有两个核心方法，
+		一个是loadClass(String,boolean),实现了双亲委派机制，
+		一个是findClass，默认实现是空方法，所以我们自定义类加载器主要是重写findClass方法。
+		
+		打破双亲委派机制：
+			用自定义类加载器加载我们自己实现的java.lang.String.class,
+			重写类加载方法，实现自己的加载逻辑，不委派给双亲加载。执行报错。
+				运行结果：java.lang.SecurityExcetion:prohibited package name:java.lang at java.lang.ClassLoader.preDefindClass(ClassLoader.java:659)...
+	
+	
+	
+	
